@@ -1,46 +1,37 @@
-    <h1>Ejercicio 1: Pasaporte - Foto - Titular</h1>
-    <p>Este ejercicio modela dos relaciones 1 a 1 para la clase <strong>Pasaporte</strong>: una relación fuerte de composición con <strong>Foto</strong> y una asociación bidireccional con <strong>Titular</strong>.</p>
+# 💻 T.P. 5: Relaciones UML 1 a 1 (Pasaporte - Foto - Titular)
 
-    <hr>
+Este ejercicio modela dos relaciones **1 a 1** para la clase `Pasaporte`: una relación fuerte de Composición con `Foto` y una Asociación Bidireccional con `Titular`.
 
-    <h2>1. Relaciones Definidas</h2>
+---
 
-    <table border="1" style="width:100%; text-align:center;">
-        <thead>
-            <tr>
-                <th>Relación</th>
-                <th>Clases</th>
-                <th>Tipo</th>
-                <th>Dirección</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>a</td>
-                <td>Pasaporte &rarr; Foto</td>
-                <td><strong>Composición</strong></td>
-                <td>Unidireccional</td>
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Pasaporte &harr; Titular</td>
-                <td><strong>Asociación</strong></td>
-                <td>Bidireccional</td>
-            </tr>
-        </tbody>
-    </table>
+## 1. Definición de Relaciones
 
-    <hr>
+La siguiente tabla resume el tipo y dirección de las relaciones que deben implementarse.
 
-    <h2>2. Implementación en Java (Conceptos)</h2>
-    
-    <ul>
-        <li>
-            <strong>Composición (Pasaporte &rarr; Foto):</strong> 
-            El objeto <strong>Foto</strong> (la parte) se crea junto con el <strong>Pasaporte</strong> (el todo) en el constructor y solo se referencia desde Pasaporte. Esto refleja que la vida de la Foto depende del Pasaporte.
-        </li>
-        <li>
-            <strong>Asociación Bidireccional (Pasaporte &harr; Titular):</strong> 
-            Ambas clases tienen un atributo de la otra (Pasaporte tiene un Titular y Titular tiene un Pasaporte), lo que permite la navegación en ambos sentidos.
-        </li>
-    </ul>
+| Relación | Clases | Tipo | Dirección |
+| :--- | :--- | :--- | :--- |
+| **a** | `Pasaporte` &rarr; `Foto` | **Composición** | Unidireccional |
+| **b** | `Pasaporte` &harr; `Titular` | **Asociación** | Bidireccional |
+
+### Clases y Atributos
+
+| Clase | Atributos | Rol en la Relación |
+| :--- | :--- | :--- |
+| `Pasaporte` | `numero`, `fechaEmision` | Contenedor (Todo) / Clase Central |
+| `Foto` | `imagen`, `formato` | Contenida (Parte) |
+| `Titular` | `nombre`, `dni` | Asociado |
+
+---
+
+## 2. Conceptos Clave para la Implementación en Java
+
+La implementación en Java debe reflejar la diferencia entre la dependencia del ciclo de vida y la bidireccionalidad.
+
+### ➡️ Composición (`Pasaporte` &rarr; `Foto`)
+* El objeto `Foto` (la parte) debe ser **creado dentro del constructor** de `Pasaporte`.
+* Esto asegura que la `Foto` **no puede existir** sin una instancia de `Pasaporte`.
+
+### ↔️ Asociación Bidireccional (`Pasaporte` &harr; `Titular`)
+* La clase `Pasaporte` debe tener un atributo de tipo `Titular`.
+* La clase `Titular` debe tener un atributo de tipo `Pasaporte`.
+* El vínculo debe establecerse en ambas direcciones durante la creación, asegurando que ambos objetos se conozcan mutuamente.
