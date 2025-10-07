@@ -1,3 +1,11 @@
+//1. Pasaporte - Foto - Titular
+//    a. Composición: Pasaporte → Foto
+//    b. Asociación bidireccional: Pasaporte ↔ Titular
+//Clases y atributos:
+//    i. Pasaporte: numero, fechaEmision
+//    ii. Foto: imagen, formato
+//    iii. Titular: nombre, dni
+
 // Clase 1: Pasaporte - Contiene (Composición) y Asocia (Bidireccional)
 class Pasaporte {
     private String numero;
