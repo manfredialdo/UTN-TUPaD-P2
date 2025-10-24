@@ -83,7 +83,7 @@ class Curso {
         this.profesor = null;
     }
     
-    // ---------------- Método Clave de Sincronización ----------------
+    // ---------------- Método de Sincronización ----------------
     /* * setProfesor: Mantiene el Invariante de Asociación (Sincronización Bidireccional).
      * Este es el único método que modifica la relación en ambos lados.
      */
@@ -107,7 +107,7 @@ class Curso {
 
     public void mostrarInfo() {
         String nombreProfesor = (profesor != null) ? profesor.getNombre() : "SIN ASIGNAR";
-        System.out.println("📚 Curso [" + codigo + "]: " + nombre + " | Profesor: " + nombreProfesor);
+        System.out.println("Curso [" + codigo + "]: " + nombre + " | Profesor: " + nombreProfesor);
     }
     // -----------------------------------------------------------------
 
@@ -144,15 +144,15 @@ class Universidad {
     public void agregarProfesor(Profesor p) {
         if (!profesores.contains(p)) { 
             profesores.add(p);
-            System.out.println("✅ Profesor " + p.getNombre() + " agregado.");
-        } else { System.out.println("⚠️ Profesor " + p.getNombre() + " ya existe."); }
+            System.out.println("Profesor " + p.getNombre() + " agregado.");
+        } else { System.out.println("Profesor " + p.getNombre() + " ya existe."); }
     }
 
     public void agregarCurso(Curso c) {
         if (!cursos.contains(c)) { 
             cursos.add(c);
-            System.out.println("✅ Curso [" + c.getCodigo() + "] " + c.getNombre() + " agregado.");
-        } else { System.out.println("⚠️ Curso [" + c.getCodigo() + "] ya existe."); }
+            System.out.println("Curso [" + c.getCodigo() + "] " + c.getNombre() + " agregado.");
+        } else { System.out.println("Curso [" + c.getCodigo() + "] ya existe."); }
     }
 
     // El método que orquesta la asignación y el Invariante
@@ -161,13 +161,13 @@ class Universidad {
         Profesor profesor = buscarProfesorPorId(idProfesor);
 
         if (curso == null || profesor == null) {
-            System.out.println("❌ Error de asignación: Curso o Profesor no encontrado.");
+            System.out.println("Error de asignación: Curso o Profesor no encontrado.");
             return;
         }
         
         // Llama al método clave del Curso, el cual sincroniza al Profesor.
         curso.setProfesor(profesor); 
-        System.out.println("🔗 Asignado: " + profesor.getNombre() + " dicta [" + curso.getCodigo() + "].");
+        System.out.println("Asignado: " + profesor.getNombre() + " dicta [" + curso.getCodigo() + "].");
     }
 
     public void listarProfesores() {
@@ -204,9 +204,9 @@ class Universidad {
             // Rompe la relación con el profesor (llama a setProfesor(null) internamente)
             curso.setProfesor(null); 
             cursos.remove(curso);
-            System.out.println("🗑️ Curso [" + codigo + "] ELIMINADO. Relación rota.");
+            System.out.println("Curso [" + codigo + "] ELIMINADO. Relación rota.");
         } else {
-            System.out.println("❌ No se pudo eliminar: Curso " + codigo + " no encontrado.");
+            System.out.println(" No se pudo eliminar: Curso " + codigo + " no encontrado.");
         }
     }
 
