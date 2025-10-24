@@ -1,15 +1,15 @@
 class Vehiculo {
-    // 🏷️ Modificadores de acceso: private para encapsulamiento
+    // Modificadores de acceso: private para encapsulamiento
     private String marca;
     private String modelo;
 
-    // 🛠️ Constructor para inicializar atributos
+    // Constructor para inicializar atributos
     public Vehiculo(String marca, String modelo) {
         this.marca = marca;
         this.modelo = modelo;
     }
 
-    // ⚙️ Método para mostrar información
+    //  Método para mostrar información
     public void mostrarInfo() {
         System.out.println("--- Información del Vehículo ---");
         System.out.println("Marca: " + marca);
